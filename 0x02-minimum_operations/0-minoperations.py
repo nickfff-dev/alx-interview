@@ -16,22 +16,14 @@ def minOperations(n: int) -> int:
     int: The minimum number of operations needed, or 0 if n is
     impossible to achieve.
     """
-    if n < 0:
+    if n < 2:
         return 0
-
-    currentSequence = 'H'
-    nextSequence = 'H'
-    operationCount = 0
-    while (len(currentSequence) < n):
-        if n % len(currentSequence) == 0:
-            operationCount += 2
-            nextSequence = currentSequence
-            currentSequence += currentSequence
-        else:
-            operationCount += 1
-            currentSequence += nextSequence
-
-    if len(currentSequence) != n:
-        return 0
-
-    return operationCount
+    ops = []
+    i = 1
+    while n != 1:
+        i += 1
+        if n % i == 0:
+            while n % i == 0:
+                n /= i
+                ops.append(i)
+    return sum(ops)
