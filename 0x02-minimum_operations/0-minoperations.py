@@ -22,7 +22,7 @@ def minOperations(n: int) -> int:
     currentSequence = 'H'
     nextSequence = 'H'
     operationCount = 0
-    while len(currentSequence) < n:
+    while (len(currentSequence) < n):
         if n % len(currentSequence) == 0:
             operationCount += 2
             nextSequence = currentSequence
