@@ -43,6 +43,6 @@ if __name__ == "__main__":
                 if num_lines % 10 == 0:
                     print_statistics(log_data)
         print_statistics(log_data)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         print_statistics(log_data)
         raise
