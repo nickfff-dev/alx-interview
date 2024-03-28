@@ -49,9 +49,9 @@ def run_log_stats():
             if num_lines % 10 == 0:
                 print_statistics(log_data)
             print_statistics(log_data)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError) as e:
         print_statistics(log_data)
-        raise
+        raise e
 
 
 if __name__ == "__main__":
