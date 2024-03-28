@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
                 # Update metrics
                 log_data['total_file_size'] += file_size
-                if isinstance(status_code, int) and \
+                if status_code and isinstance(status_code, int) and \
                         (str(status_code) in log_data['status_code_dict']):
                     log_data['status_code_dict'][str(status_code)] += 1
             # Print statistics every 10 lines
