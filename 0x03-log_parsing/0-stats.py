@@ -48,6 +48,7 @@ def run_log_stats():
             update_stats(log_data, file_size, status_code)
             if num_lines % 10 == 0:
                 print_statistics(log_data)
+            print_statistics(log_data)
     except KeyboardInterrupt:
         print_statistics(log_data)
         raise
