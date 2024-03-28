@@ -41,7 +41,6 @@ if __name__ == "__main__":
             # Print statistics every 10 lines
                 if num_lines % 10 == 0:
                     print_statistics(log_data)
-        print_statistics(log_data)
     except KeyboardInterrupt:
         print_statistics(log_data)
         raise
