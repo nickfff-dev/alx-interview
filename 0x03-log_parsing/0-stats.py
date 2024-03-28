@@ -23,17 +23,16 @@ if __name__ == "__main__":
     # Process each line from stdin
     try:
         for line in sys.stdin:
+            num_lines += 1
             line = line.strip()
             # Regular expression to match the input format
             pattern = r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+\] "GET /projects/260 HTTP/1.1" (.{3}) (\d+)'  # nopep8
             match = re.match(pattern, line)
 
             if match:
-                num_lines += 1
                 # Extract file size and status code
                 file_size = int(match.group(2))
                 status_code = int(match.group(1))
-
                 # Update metrics
                 log_data['total_file_size'] += file_size
                 if isinstance(status_code, int) and \
