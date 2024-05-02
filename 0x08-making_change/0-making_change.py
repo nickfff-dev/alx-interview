@@ -16,8 +16,11 @@ def makeChange(coins, total):
     int: The fewest number of coins needed to meet total.
     Returns -1 if total cannot be met by any number of coins.
     """
-    if total <= 0 or not coins:
+    if total <= 0:
         return 0
+    n = len(coins)
+    if n == 0:
+        return -1
     coins.sort(reverse=True)  # Sort coins in descending order
     count = 0
     for coin in coins:
